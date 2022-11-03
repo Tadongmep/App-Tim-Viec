@@ -359,11 +359,12 @@ def delete_file(id):
 def display_image():
     user = db_session.query(UserProfile).filter(
         UserProfile.user_id == session['user_id']).first()
-    # print(user.degree_images)
+    # print(user.user_id)
+    url_images = []
     for img in user.degree_images:
-        print(img.file_name)
-        # url_for(current_app.config['UPLOAD_FOLDER'], img.file_name)
-        print(url_for('images', filename='/'+img.file_name))
-    return 'send_from_directory('
-    #     current_app.config['UPLOAD_FOLDER'], name, as_attachment=True
-    # )
+        temp = {}
+        temp['url'] = url_for('static', filename='images/' + img.file_name)
+        url_images.append(temp)
+    
+    # print(url_images)
+    return url_images

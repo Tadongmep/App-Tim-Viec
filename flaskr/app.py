@@ -3,7 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from models import db_session, db
 
-UPLOAD_FOLDER = '../images/'
+UPLOAD_FOLDER = 'static/images/'
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
